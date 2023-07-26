@@ -1,0 +1,23 @@
+---------------------------------
+OBSERVACIONES Y CONCLUSIONES
+---------------------------------
+
+De acuerdo al enunciado del requerimiento, se constituye la suite considerando cada uno de los items
+como una prueba individual. Se encapsulan comportamientos dentro de métodos con el respectivo nombre
+y se hace uso de Custom Commands.
+
+Con respecto a la API, se observa que un usuario puede ser creado sin realizar autenticación previa,
+a pesar de que existe un endpoint para realizar el inicio de sesión.
+
+Adicionalmente se observan las respuestas del servidor, en cuyo cuerpo se reutiliza el campo "message"
+para devolver valores de algunos otros campos. Se utiliza esta caracteristica para hacer las 
+respectivas aserciones.
+
+Llama la atención el uso que se le da al campo "username" como identificador principal para realizar
+operaciones con la gran mayoria de los endpoint en lugar de usar el campo id. Tambien, el que no se
+encuentre disponible un endpoint para PATCH, el cual evitaría el tener que enviar todo el objeto que
+ha de ser actualizado, centrandose unicamente en los campos modificados.
+
+Como opciones de mejora se plantea el parametrizar los metodos para reducir redundancias en el codigo.
+Tambien el incluir mas informacion en los datos de prueba y realizar el cargue mediante fixtures.
+Se recomienda incluir not-happy-paths y probar los demas endpoint que se encuentren relacionados. 
